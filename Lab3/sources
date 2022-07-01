@@ -1,0 +1,23 @@
+# Defines a list of additional include directories that will be prepended to the list of
+# standard include directories.
+INCLUDE_DIRS = \
+	$(REL_SRC_DIR) \
+	$(REL_PROJECT_DIR)/sim \
+	$(REL_PROJECT_DIR)/sim/host/Workbench
+
+# Defines a list of directories which are searched for source files recursively. 
+# All source files found within these directories are compiled and linked to the binary.
+SOURCES_DIRS_RECURSIVE = \
+	$(REL_SRC_DIR) \
+	$(REL_PROJECT_DIR)/sim/host/Workbench
+
+# Defines a list of directories which are searched for source files non-recursively.
+# All source files found within these directories are compiled and linked to the binary.
+SOURCES_DIRS = \
+	$(REL_PROJECT_DIR)/sim
+
+# Defines a list of source files which should be removed from the list of sources.
+SOURCES_EXCLUDES =
+
+# Defines a list of source files which should be added to the list of sources.
+SOURCES_INCLUDES =

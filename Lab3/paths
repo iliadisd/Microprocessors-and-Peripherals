@@ -1,0 +1,18 @@
+# Relative path to redBlocks library
+REL_REDBLOCKS_DIR = ../../redBlocks
+
+# Relative path to build directory
+# All generated and compiled files are put into this directory.
+REL_BUILD_DIR = build
+
+# Relative path to unit test directory.
+# Unit tests are located within this directory. 
+REL_UTEST_DIR = utest
+
+# Relative path to project directory.
+# Project specific sources are located within this directory.
+REL_PROJECT_DIR = project
+
+# Relative path to source directory.
+# Shared sources are located within this directory.
+REL_SRC_DIR = src
