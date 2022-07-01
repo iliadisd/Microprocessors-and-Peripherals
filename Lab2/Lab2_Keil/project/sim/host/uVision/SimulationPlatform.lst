@@ -1,0 +1,1436 @@
+L 1 "..\..\SimulationPlatform.c"
+N#include <libredBlocks_sim.h>
+L 1 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\libredBlocks_sim.h" 1
+N/*
+N * libredBlocks_sim.h 
+N * redBlocks Library - Version 2.13.0 - Evaluation Version.
+N * Copyright © redlogix Software & System Engineering GmbH, 2012-2020. All rights reserved. 
+N *
+N * The source code in this file may be incomplete compared to its Commercial Version's counterpart. 
+N * However, it may be used in its present form for developing commercial applications if at least 
+N * one component of the redBlocks Library is commercially licensed for the respective application.
+N * 
+N * If not being used together with at least one commercially licensed component of the redBlocks 
+N * Library it may be used for evaluation purposes ONLY. 
+N *
+N * In any case you may not: 
+N * (a) to a third party, transfer rights or usage to, sublicense, rent, lease or otherwise distribute 
+N *     the source code, or any portions thereof, except with redlogix's prior written consent.
+N * (b) create derivative source code of the software.
+N * (c) modify, loan, decompile, reverse engineer or disassemble or otherwise distribute the software, 
+N *     except with redlogix's prior written consent.
+N * (d) remove any intellectual property notices within the software.
+N *
+N * THIS SOFTWARE IS PROVIDED "AS IS" AND WITH POTENTIAL FAULTS.
+N * NO WARRANTIES, WHETHER EXPLICITLY EXPRESSED, IMPLIED OR STATUTORY, INCLUDING, BUT
+N * NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+N * A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. REDLOGIX SHALL NOT, UNDER ANY
+N * CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
+N * DAMAGES, FOR ANY REASON WHATSOEVER.
+N */
+N
+N#ifndef LIBREDBLOCKS_SIM_H_
+N#define LIBREDBLOCKS_SIM_H_
+N
+N#include <rbCTypes.h>
+L 1 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbCTypes.h" 1
+N/*
+N * rbCTypes.h 
+N * redBlocks Library - Version 2.13.0 - Evaluation Version.
+N * Copyright © redlogix Software & System Engineering GmbH, 2012-2020. All rights reserved. 
+N *
+N * The source code in this file may be incomplete compared to its Commercial Version's counterpart. 
+N * However, it may be used in its present form for developing commercial applications if at least 
+N * one component of the redBlocks Library is commercially licensed for the respective application.
+N * 
+N * If not being used together with at least one commercially licensed component of the redBlocks 
+N * Library it may be used for evaluation purposes ONLY. 
+N *
+N * In any case you may not: 
+N * (a) to a third party, transfer rights or usage to, sublicense, rent, lease or otherwise distribute 
+N *     the source code, or any portions thereof, except with redlogix's prior written consent.
+N * (b) create derivative source code of the software.
+N * (c) modify, loan, decompile, reverse engineer or disassemble or otherwise distribute the software, 
+N *     except with redlogix's prior written consent.
+N * (d) remove any intellectual property notices within the software.
+N *
+N * THIS SOFTWARE IS PROVIDED "AS IS" AND WITH POTENTIAL FAULTS.
+N * NO WARRANTIES, WHETHER EXPLICITLY EXPRESSED, IMPLIED OR STATUTORY, INCLUDING, BUT
+N * NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+N * A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. REDLOGIX SHALL NOT, UNDER ANY
+N * CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
+N * DAMAGES, FOR ANY REASON WHATSOEVER.
+N */
+N
+N// see rbLegacyIncludes.h. for a description of the following lines
+N#ifdef RB_LEGACY_INCLUDES_H_
+S#undef s8
+S#undef u8
+S#undef s16
+S#undef u16
+S#undef s32
+S#undef u32
+S#undef s64
+S#undef u64
+S#undef RB_LEGACY_INCLUDES_H_
+N#endif
+N
+N#ifndef RB_C_TYPES_H_
+N#define RB_C_TYPES_H_
+N
+N#include <rbConfig.h>
+L 1 "..\..\..\..\src\rbConfig.h" 1
+N//RB_PROC:ALL:HEADER_DATA
+N
+N#ifndef RB_CONFIG_H_
+N#define RB_CONFIG_H_
+N
+N// add project specific configuration options before this include directive
+N#include <rbConfig-default.h>
+L 1 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbConfig-default.h" 1
+N/*
+N * rbConfig-default.h 
+N * redBlocks Library - Version 2.13.0 - Evaluation Version.
+N * Copyright © redlogix Software & System Engineering GmbH, 2012-2020. All rights reserved. 
+N *
+N * The source code in this file may be incomplete compared to its Commercial Version's counterpart. 
+N * However, it may be used in its present form for developing commercial applications if at least 
+N * one component of the redBlocks Library is commercially licensed for the respective application.
+N * 
+N * If not being used together with at least one commercially licensed component of the redBlocks 
+N * Library it may be used for evaluation purposes ONLY. 
+N *
+N * In any case you may not: 
+N * (a) to a third party, transfer rights or usage to, sublicense, rent, lease or otherwise distribute 
+N *     the source code, or any portions thereof, except with redlogix's prior written consent.
+N * (b) create derivative source code of the software.
+N * (c) modify, loan, decompile, reverse engineer or disassemble or otherwise distribute the software, 
+N *     except with redlogix's prior written consent.
+N * (d) remove any intellectual property notices within the software.
+N *
+N * THIS SOFTWARE IS PROVIDED "AS IS" AND WITH POTENTIAL FAULTS.
+N * NO WARRANTIES, WHETHER EXPLICITLY EXPRESSED, IMPLIED OR STATUTORY, INCLUDING, BUT
+N * NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+N * A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. REDLOGIX SHALL NOT, UNDER ANY
+N * CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
+N * DAMAGES, FOR ANY REASON WHATSOEVER.
+N */
+N
+N#ifndef RB_CONFIG_DEFAULT_H_
+N#define RB_CONFIG_DEFAULT_H_
+N
+N/*
+N * Global configuration file for the redBlocks library.
+N *
+N * This file is not meant to be changed. Instead, it needs to be included at the end of
+N * an application-specific configuration file rbConfig.h
+N *
+N * Its purpose is to set all definitions to default values, that are not explicitly
+N * specified in rbConfig.h
+N */
+N
+N#if !defined(RB_USE_STDINT_TYPES)
+X#if !0L
+N/*
+N * If this macro is set to 1, the data types uint8_t, sint8_t, uint16_t, ...
+N * from stdint.h are used in order to define u8, s8, u16, ..., i.e. they are
+N * mere aliases for the corresponding stdint.h data types. Otherwise,
+N * the data types char, short, long, ... are used to define u8, u16, u32, ...
+N * If not otherwise specified, this configuration parameter defaults to 1. It
+N * is recommended to use this default value, unless the platform does not provide
+N * the required data types with stdint.h. In this case, it needs to be set to 0.
+N */
+N#define RB_USE_STDINT_TYPES 1
+N#endif
+N
+N#if (!defined(RB_TARGET_ENDIANNESS_LITTLE)) && (!defined(RB_TARGET_ENDIANNESS_BIG))
+X#if (!0L) && (!0L)
+N/*
+N * Macros to define the target's endianness (relevant to determine the byte order
+N * during serialization).
+N * Values:
+N * - <b>RB_TARGET_ENDIANNESS_LITTLE</b>  for little endian targets
+N * - <b>RB_TARGET_ENDIANNESS_BIG</b>     for big endian targets
+N */
+N#define RB_TARGET_ENDIANNESS_LITTLE
+N#endif
+N
+N#if (!defined(RB_PACKED_STYLE_GNU)) && (!defined(RB_PACKED_STYLE_ARM))
+X#if (!0L) && (!0L)
+N/*
+N * Macro setting the compiler directive style for packing structs and enums (see rbPacked.h for details).
+N * Values:
+N * - <b>RB_PACKED_STYLE_GNU</b>  for gnu compiler style
+N * - <b>RB_PACKED_STYLE_ARM</b>  for arm compiler style
+N */
+N#define RB_PACKED_STYLE_GNU
+N#endif
+N
+N#if (!defined(RB_ERROR_HANDLER_CLASS))
+X#if (!0L)
+N/*
+N * Specifies the fully qualified name of the class that is used for error handling.
+N */
+N#define RB_ERROR_HANDLER_CLASS redBlocks::Core::ResetErrorHandler
+N#endif
+N
+N#if (!defined(RB_ERROR_HANDLER_INC))
+X#if (!0L)
+N/*
+N * Specifies the include path of the header file where the error handler class is defined.
+N */
+N#define RB_ERROR_HANDLER_INC   <Core/Error/ResetErrorHandler.h>
+N#endif
+N
+N#if (!defined(RB_STD_LOGGER_CLASS))
+X#if (!0L)
+N/*
+N * Specifies the fully qualified name of the class that is used for logging.
+N */
+N#define RB_STD_LOGGER_CLASS Platform::StandardLogger
+N#else
+S#define __RB_LOG_ON_DEFAULT 1
+N#endif
+N
+N#if (!defined(RB_STD_LOGGER_INC))
+X#if (!0L)
+N/*
+N * Specifies the include path of the header file where the standard logger class is defined.
+N */
+N#define RB_STD_LOGGER_INC   <Platform.h>
+N#endif
+N
+N
+N#if !defined(RB_LOG_ON)
+X#if !0L
+N#if !defined(__RB_LOG_ON_DEFAULT)
+X#if !0L
+N/*
+N * Set to 1 in order to switch logging on, specify 0 in order to
+N * turn off all logging functionality. If no value is explicitly specified,
+N * logging is per default turned on, if RB_STD_LOGGER_CLASS was defined.
+N */
+N#define RB_LOG_ON 0
+N#else
+S#define RB_LOG_ON __RB_LOG_ON_DEFAULT
+N#endif
+N#endif
+N
+N
+N#if !defined(RB_LOG_DEBUG_ON)
+X#if !0L
+N/*
+N * Set to 1 in order to switch debug logging on, specify 0 in order to turn it off.
+N */
+N#define RB_LOG_DEBUG_ON 1
+N#endif
+N
+N#if !defined(RB_LOG_INFO_ON)
+X#if !0L
+N/*
+N * Set to 1 in order to switch info logging on, specify 0 in order to turn it off.
+N */
+N#define RB_LOG_INFO_ON 1
+N#endif
+N
+N#if !defined(RB_LOG_WARN_ON)
+X#if !0L
+N/*
+N * Set to 1 in order to switch warning logging on, specify 0 in order to turn it off.
+N */
+N#define RB_LOG_WARN_ON 1
+N#endif
+N
+N#if !defined(RB_LOG_ERROR_ON)
+X#if !0L
+N/*
+N * Set to 1 in order to switch error logging on, specify 0 in order to turn it off.
+N */
+N#define RB_LOG_ERROR_ON 1
+N#endif
+N
+N#if !defined(RB_LOG_LOCATION_ON)
+X#if !0L
+N/*
+N * If this macro is set to 1, additional information is output with each
+N * logging message that identifies where the logging message was generated
+N * (file name and line number).
+N * The compiler must support the auto generated macros __FILE__ and __LINE__
+N * for this feature to work.
+N * In order to deactivate this feature, set this define to 0.
+N */
+N#define RB_LOG_LOCATION_ON 1
+N#endif
+N
+N#if !defined(RB_LOG_COMPATIBILITY_ON)
+X#if !0L
+N/*
+N * Enables backward compatibility for logging facility.
+N */
+N#define RB_LOG_COMPATIBILITY_ON 1
+N#endif
+N
+N#endif // RB_CONFIG_DEFAULT_H_
+L 8 "..\..\..\..\src\rbConfig.h" 2
+N
+N#endif //RB_CONFIG_H_
+L 46 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbCTypes.h" 2
+N
+N/** Data type definitions */
+N#if RB_USE_STDINT_TYPES
+X#if 1
+N
+N#include <stdint.h>
+L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h" 1
+N/* Copyright (C) ARM Ltd., 1999,2014 */
+N/* All rights reserved */
+N
+N/*
+N * RCS $Revision$
+N * Checkin $Date$
+N * Revising $Author: agrant $
+N */
+N
+N#ifndef __stdint_h
+N#define __stdint_h
+N#define __ARMCLIB_VERSION 5060044
+N
+N  #ifdef __INT64_TYPE__
+S    /* armclang predefines '__INT64_TYPE__' and '__INT64_C_SUFFIX__' */
+S    #define __INT64 __INT64_TYPE__
+N  #else
+N    /* armcc has builtin '__int64' which can be used in --strict mode */
+N    #define __INT64 __int64
+N    #define __INT64_C_SUFFIX__ ll
+N  #endif
+N  #define __PASTE2(x, y) x ## y
+N  #define __PASTE(x, y) __PASTE2(x, y)
+N  #define __INT64_C(x)  __ESCAPE__(__PASTE(x, __INT64_C_SUFFIX__))
+N  #define __UINT64_C(x)  __ESCAPE__(__PASTE(x ## u, __INT64_C_SUFFIX__))
+N  #if defined(__clang__) || (defined(__ARMCC_VERSION) && !defined(__STRICT_ANSI__))
+X  #if 0L || (1L && !0L)
+N    /* armclang and non-strict armcc allow 'long long' in system headers */
+N    #define __LONGLONG long long
+N  #else
+S    /* strict armcc has '__int64' */
+S    #define __LONGLONG __int64
+N  #endif
+N
+N  #ifndef __STDINT_DECLS
+N  #define __STDINT_DECLS
+N
+N    #undef __CLIBNS
+N
+N    #ifdef __cplusplus
+S      namespace std {
+S          #define __CLIBNS std::
+S          extern "C" {
+N    #else
+N      #define __CLIBNS
+N    #endif  /* __cplusplus */
+N
+N
+N/*
+N * 'signed' is redundant below, except for 'signed char' and if
+N * the typedef is used to declare a bitfield.
+N */
+N
+N    /* 7.18.1.1 */
+N
+N    /* exact-width signed integer types */
+Ntypedef   signed          char int8_t;
+Ntypedef   signed short     int int16_t;
+Ntypedef   signed           int int32_t;
+Ntypedef   signed       __INT64 int64_t;
+Xtypedef   signed       __int64 int64_t;
+N
+N    /* exact-width unsigned integer types */
+Ntypedef unsigned          char uint8_t;
+Ntypedef unsigned short     int uint16_t;
+Ntypedef unsigned           int uint32_t;
+Ntypedef unsigned       __INT64 uint64_t;
+Xtypedef unsigned       __int64 uint64_t;
+N
+N    /* 7.18.1.2 */
+N
+N    /* smallest type of at least n bits */
+N    /* minimum-width signed integer types */
+Ntypedef   signed          char int_least8_t;
+Ntypedef   signed short     int int_least16_t;
+Ntypedef   signed           int int_least32_t;
+Ntypedef   signed       __INT64 int_least64_t;
+Xtypedef   signed       __int64 int_least64_t;
+N
+N    /* minimum-width unsigned integer types */
+Ntypedef unsigned          char uint_least8_t;
+Ntypedef unsigned short     int uint_least16_t;
+Ntypedef unsigned           int uint_least32_t;
+Ntypedef unsigned       __INT64 uint_least64_t;
+Xtypedef unsigned       __int64 uint_least64_t;
+N
+N    /* 7.18.1.3 */
+N
+N    /* fastest minimum-width signed integer types */
+Ntypedef   signed           int int_fast8_t;
+Ntypedef   signed           int int_fast16_t;
+Ntypedef   signed           int int_fast32_t;
+Ntypedef   signed       __INT64 int_fast64_t;
+Xtypedef   signed       __int64 int_fast64_t;
+N
+N    /* fastest minimum-width unsigned integer types */
+Ntypedef unsigned           int uint_fast8_t;
+Ntypedef unsigned           int uint_fast16_t;
+Ntypedef unsigned           int uint_fast32_t;
+Ntypedef unsigned       __INT64 uint_fast64_t;
+Xtypedef unsigned       __int64 uint_fast64_t;
+N
+N    /* 7.18.1.4 integer types capable of holding object pointers */
+N#if __sizeof_ptr == 8
+X#if 4 == 8
+Stypedef   signed       __INT64 intptr_t;
+Stypedef unsigned       __INT64 uintptr_t;
+N#else
+Ntypedef   signed           int intptr_t;
+Ntypedef unsigned           int uintptr_t;
+N#endif
+N
+N    /* 7.18.1.5 greatest-width integer types */
+Ntypedef   signed     __LONGLONG intmax_t;
+Xtypedef   signed     long long intmax_t;
+Ntypedef unsigned     __LONGLONG uintmax_t;
+Xtypedef unsigned     long long uintmax_t;
+N
+N
+N#if !defined(__cplusplus) || defined(__STDC_LIMIT_MACROS)
+X#if !0L || 0L
+N
+N    /* 7.18.2.1 */
+N
+N    /* minimum values of exact-width signed integer types */
+N#define INT8_MIN                   -128
+N#define INT16_MIN                -32768
+N#define INT32_MIN          (~0x7fffffff)   /* -2147483648 is unsigned */
+N#define INT64_MIN  __INT64_C(~0x7fffffffffffffff) /* -9223372036854775808 is unsigned */
+N
+N    /* maximum values of exact-width signed integer types */
+N#define INT8_MAX                    127
+N#define INT16_MAX                 32767
+N#define INT32_MAX            2147483647
+N#define INT64_MAX  __INT64_C(9223372036854775807)
+N
+N    /* maximum values of exact-width unsigned integer types */
+N#define UINT8_MAX                   255
+N#define UINT16_MAX                65535
+N#define UINT32_MAX           4294967295u
+N#define UINT64_MAX __UINT64_C(18446744073709551615)
+N
+N    /* 7.18.2.2 */
+N
+N    /* minimum values of minimum-width signed integer types */
+N#define INT_LEAST8_MIN                   -128
+N#define INT_LEAST16_MIN                -32768
+N#define INT_LEAST32_MIN          (~0x7fffffff)
+N#define INT_LEAST64_MIN  __INT64_C(~0x7fffffffffffffff)
+N
+N    /* maximum values of minimum-width signed integer types */
+N#define INT_LEAST8_MAX                    127
+N#define INT_LEAST16_MAX                 32767
+N#define INT_LEAST32_MAX            2147483647
+N#define INT_LEAST64_MAX  __INT64_C(9223372036854775807)
+N
+N    /* maximum values of minimum-width unsigned integer types */
+N#define UINT_LEAST8_MAX                   255
+N#define UINT_LEAST16_MAX                65535
+N#define UINT_LEAST32_MAX           4294967295u
+N#define UINT_LEAST64_MAX __UINT64_C(18446744073709551615)
+N
+N    /* 7.18.2.3 */
+N
+N    /* minimum values of fastest minimum-width signed integer types */
+N#define INT_FAST8_MIN           (~0x7fffffff)
+N#define INT_FAST16_MIN          (~0x7fffffff)
+N#define INT_FAST32_MIN          (~0x7fffffff)
+N#define INT_FAST64_MIN  __INT64_C(~0x7fffffffffffffff)
+N
+N    /* maximum values of fastest minimum-width signed integer types */
+N#define INT_FAST8_MAX             2147483647
+N#define INT_FAST16_MAX            2147483647
+N#define INT_FAST32_MAX            2147483647
+N#define INT_FAST64_MAX  __INT64_C(9223372036854775807)
+N
+N    /* maximum values of fastest minimum-width unsigned integer types */
+N#define UINT_FAST8_MAX            4294967295u
+N#define UINT_FAST16_MAX           4294967295u
+N#define UINT_FAST32_MAX           4294967295u
+N#define UINT_FAST64_MAX __UINT64_C(18446744073709551615)
+N
+N    /* 7.18.2.4 */
+N
+N    /* minimum value of pointer-holding signed integer type */
+N#if __sizeof_ptr == 8
+X#if 4 == 8
+S#define INTPTR_MIN INT64_MIN
+N#else
+N#define INTPTR_MIN INT32_MIN
+N#endif
+N
+N    /* maximum value of pointer-holding signed integer type */
+N#if __sizeof_ptr == 8
+X#if 4 == 8
+S#define INTPTR_MAX INT64_MAX
+N#else
+N#define INTPTR_MAX INT32_MAX
+N#endif
+N
+N    /* maximum value of pointer-holding unsigned integer type */
+N#if __sizeof_ptr == 8
+X#if 4 == 8
+S#define UINTPTR_MAX UINT64_MAX
+N#else
+N#define UINTPTR_MAX UINT32_MAX
+N#endif
+N
+N    /* 7.18.2.5 */
+N
+N    /* minimum value of greatest-width signed integer type */
+N#define INTMAX_MIN  __ESCAPE__(~0x7fffffffffffffffll)
+N
+N    /* maximum value of greatest-width signed integer type */
+N#define INTMAX_MAX  __ESCAPE__(9223372036854775807ll)
+N
+N    /* maximum value of greatest-width unsigned integer type */
+N#define UINTMAX_MAX __ESCAPE__(18446744073709551615ull)
+N
+N    /* 7.18.3 */
+N
+N    /* limits of ptrdiff_t */
+N#if __sizeof_ptr == 8
+X#if 4 == 8
+S#define PTRDIFF_MIN INT64_MIN
+S#define PTRDIFF_MAX INT64_MAX
+N#else
+N#define PTRDIFF_MIN INT32_MIN
+N#define PTRDIFF_MAX INT32_MAX
+N#endif
+N
+N    /* limits of sig_atomic_t */
+N#define SIG_ATOMIC_MIN (~0x7fffffff)
+N#define SIG_ATOMIC_MAX   2147483647
+N
+N    /* limit of size_t */
+N#if __sizeof_ptr == 8
+X#if 4 == 8
+S#define SIZE_MAX UINT64_MAX
+N#else
+N#define SIZE_MAX UINT32_MAX
+N#endif
+N
+N    /* limits of wchar_t */
+N    /* NB we have to undef and redef because they're defined in both
+N     * stdint.h and wchar.h */
+N#undef WCHAR_MIN
+N#undef WCHAR_MAX
+N
+N#if defined(__WCHAR32) || (defined(__ARM_SIZEOF_WCHAR_T) && __ARM_SIZEOF_WCHAR_T == 4)
+X#if 0L || (0L && __ARM_SIZEOF_WCHAR_T == 4)
+S  #define WCHAR_MIN   0
+S  #define WCHAR_MAX   0xffffffffU
+N#else
+N  #define WCHAR_MIN   0
+N  #define WCHAR_MAX   65535
+N#endif
+N
+N    /* limits of wint_t */
+N#define WINT_MIN (~0x7fffffff)
+N#define WINT_MAX 2147483647
+N
+N#endif /* __STDC_LIMIT_MACROS */
+N
+N#if !defined(__cplusplus) || defined(__STDC_CONSTANT_MACROS)
+X#if !0L || 0L
+N
+N    /* 7.18.4.1 macros for minimum-width integer constants */
+N#define INT8_C(x)   (x)
+N#define INT16_C(x)  (x)
+N#define INT32_C(x)  (x)
+N#define INT64_C(x)  __INT64_C(x)
+N
+N#define UINT8_C(x)  (x ## u)
+N#define UINT16_C(x) (x ## u)
+N#define UINT32_C(x) (x ## u)
+N#define UINT64_C(x) __UINT64_C(x)
+N
+N    /* 7.18.4.2 macros for greatest-width integer constants */
+N#define INTMAX_C(x)  __ESCAPE__(x ## ll)
+N#define UINTMAX_C(x) __ESCAPE__(x ## ull)
+N
+N#endif /* __STDC_CONSTANT_MACROS */
+N
+N    #ifdef __cplusplus
+S         }  /* extern "C" */
+S      }  /* namespace std */
+N    #endif /* __cplusplus */
+N  #endif /* __STDINT_DECLS */
+N
+N  #ifdef __cplusplus
+S    #ifndef __STDINT_NO_EXPORTS
+S      using ::std::int8_t;
+S      using ::std::int16_t;
+S      using ::std::int32_t;
+S      using ::std::int64_t;
+S      using ::std::uint8_t;
+S      using ::std::uint16_t;
+S      using ::std::uint32_t;
+S      using ::std::uint64_t;
+S      using ::std::int_least8_t;
+S      using ::std::int_least16_t;
+S      using ::std::int_least32_t;
+S      using ::std::int_least64_t;
+S      using ::std::uint_least8_t;
+S      using ::std::uint_least16_t;
+S      using ::std::uint_least32_t;
+S      using ::std::uint_least64_t;
+S      using ::std::int_fast8_t;
+S      using ::std::int_fast16_t;
+S      using ::std::int_fast32_t;
+S      using ::std::int_fast64_t;
+S      using ::std::uint_fast8_t;
+S      using ::std::uint_fast16_t;
+S      using ::std::uint_fast32_t;
+S      using ::std::uint_fast64_t;
+S      using ::std::intptr_t;
+S      using ::std::uintptr_t;
+S      using ::std::intmax_t;
+S      using ::std::uintmax_t;
+S    #endif
+N  #endif /* __cplusplus */
+N
+N#undef __INT64
+N#undef __LONGLONG
+N
+N#endif /* __stdint_h */
+N
+N/* end of stdint.h */
+L 51 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbCTypes.h" 2
+Ntypedef uint8_t   u8;
+Ntypedef int8_t   s8;
+Ntypedef uint16_t  u16;
+Ntypedef int16_t  s16;
+Ntypedef uint32_t  u32;
+Ntypedef int32_t  s32;
+Ntypedef uint64_t  u64;
+Ntypedef int64_t  s64;
+N
+N#else
+S
+Stypedef unsigned char       u8;
+Stypedef signed char         s8;
+Stypedef unsigned short      u16;
+Stypedef signed short        s16;
+Stypedef unsigned long       u32;
+Stypedef signed long         s32;
+Stypedef unsigned long long  u64;
+Stypedef signed long long    s64;
+S
+N#endif
+N
+N#include <stdbool.h>
+L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
+N/* stdbool.h: ISO/IEC 9899:1999 (C99), section 7.16 */
+N
+N/* Copyright (C) ARM Ltd., 2002
+N * All rights reserved
+N * RCS $Revision$
+N * Checkin $Date$
+N * Revising $Author: drodgman $
+N */
+N
+N#ifndef __bool_true_false_are_defined
+N#define __bool_true_false_are_defined 1
+N#define __ARMCLIB_VERSION 5060044
+N
+N  #ifndef __cplusplus /* In C++, 'bool', 'true' and 'false' and keywords */
+N    #define bool _Bool
+N    #define true 1
+N    #define false 0
+N  #else
+S    #ifdef __GNUC__
+S      /* GNU C++ supports direct inclusion of stdbool.h to provide C99
+S         compatibility by defining _Bool */
+S      #define _Bool bool
+S    #endif
+N  #endif
+N
+N#endif /* __bool_true_false_are_defined */
+N
+L 74 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbCTypes.h" 2
+N
+N/** Definition of the NULL Pointer constant */
+N#ifndef NULL
+N#define NULL 0
+N#endif // NULL
+N
+N#endif // RB_C_TYPES_H_
+N
+L 33 "C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\libredBlocks_sim.h" 2
+N
+N#ifdef __cplusplus
+Sextern "C"
+S{
+N#endif
+N
+N/** Type definition of a generic callback function. */
+Ntypedef void ( *rb_sim_CallbackFunction )();
+N
+N/** Enumeration that specifies for digital input interfaces, on which signal change the callback shall be invoked */
+Ntypedef enum
+N{
+N  RB_TRIGGER_EDGE_NONE = 0, RB_TRIGGER_EDGE_FALLING, RB_TRIGGER_EDGE_RISING, RB_TRIGGER_EDGE_BOTH
+N} rb_sim_DigitalInput_TriggerEdge;
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * This function needs to be (or is automatically) called periodically from a different execution context.
+N * From within this tick function, the redBlocks simulation library takes care of internal housekeeping tasks,
+N * communicates with the simulator and invokes all driver stubs' callback functions. The context that periodically
+N * calls this function is the simulation context.
+N *
+N * On platforms without an operating system, this function is typically called from the system tick or a timer interrupt service routine.
+N * On platforms with an operating system, this function is commonly called from within an extra thread.
+N *
+N * Depending on the simulation environment's setup, either the user is responsible to write code that invokes this function periodically.
+N * Or the simulation environment automatically sets up a simulation context that calls this function periodically. Refer to the documentation
+N * of the simulation environment's init function (e. g. rb_sim_posix_initTcp()) in order to find out whether you need to call this function
+N * periodically or not.
+N */
+Nvoid rb_sim_tick( void );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * This method simulates entering the processor's sleep mode.
+N * It does not return before leaveSleepMode() is called.
+N */
+Nvoid rb_sim_enterSleepMode( void );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * When this method is called, a previous call (from a different execution context) to enterSleepMode() returns.
+N */
+Nvoid rb_sim_leaveSleepMode( void );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * This method needs to be called after the simulated hardware has been initialized.
+N * It sends a message to the simulation server indicating that we have reached this point.
+N * It will tell the simulator that all interfaces have been initialized and the simulation state
+N * can be changed from @c started to @c running.
+N */
+Nvoid rb_sim_initDone( void );
+N
+N/*******************************************************************************************
+N * System tick
+N *******************************************************************************************/
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * With this function the system tick simulation can be set up. The specified function arguments
+N * define how often the callback function is invoked within the specified number of simulation ticks.
+N * Each call to the function @ref rb_sim_tick is a simulation tick.
+N *
+N * Example: numSysTicks=10 and perSimTicks=1 => on each call to @ref rb_sim_tick, 10 system ticks will
+N * be simulated, i. e. the specified callback function will be invoked 10 times from within each call to
+N * @ref rb_sim_tick.
+N *
+N * The function does not yet enable the system tick. This must be done by calling @ref rb_sim_SystemTick_enableCallback().
+N * @param numSysTicks the number of system ticks that will be simulated when the method
+N *   @ref rb_sim_tick has been called @par perSimTick times.
+N * @param perSimTicks the number of simulation ticks that need to pass until the specified number
+N *   of @par numSysTicks are simulated.
+N * @param callback the callback function which is invoked on each simulated system tick
+N */
+Nvoid rb_sim_SystemTick_init( u8 numSysTicks, u8 perSimTicks, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Enables the simulated system tick.
+N */
+Nvoid rb_sim_SystemTick_enableCallback( void );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the simulated system tick.
+N */
+Nvoid rb_sim_SystemTick_disableCallback( void );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Use this function to temporarily disable all simulated interrupts. After having called this function,
+N * no driver stub will issue any more callbacks (but callback requests will be queued) until they are
+N * re-enabled by a call to rb_sim_enableAllCallbacks().
+N *
+N * Be aware that this function also deactivates the simulation tick, which is required to keep up
+N * the communication with the redBlocks Simulator. Thus, make sure to disable the interrupts only
+N * temporarily.
+N *
+N * When the simulation environment starts, the callbacks are automatically enabled.
+N */
+Nvoid rb_sim_disableAllCallbacks( void );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Use this function to re-enable the simulated interrupts that have been disabled by a call to
+N * rb_sim_disableAllCallbacks().
+N */
+Nvoid rb_sim_enableAllCallbacks( void );
+N
+N/*******************************************************************************************
+N * Interfaces
+N * Before interfaces can be used, they must be created with the corresponding add function.
+N * Within the add functions, an instance of the interface is created and the initial value is exchanged with the simulator.
+N * Before calling an add method make sure the following preconditions have been met.
+N * - The function rb_sim_tick() needs to be called periodically.
+N *   Some initialization functions like rb_sim_posix_initTcp() internally creates a tick source and call the function rb_sim_tick().
+N *   In other cases, the tick source needs to be set up manually, i.e. start a hardware timer and call
+N *   the function rb_sim_tick() from the interrupt service routine.
+N * - The connection to the simulator needs to be established.
+N *******************************************************************************************/
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new digital input interface.
+N * This function blocks until the initial value of the simulated peripheral was received from the simulator.
+N * @param index the unique interface identifier.
+N * @param triggerEdge specifies at which signal edge the callback is triggered.
+N * @param callback Pointer to the callback function which is invoked each time the interface changes (depending on the configured triggerEdge).
+N *                 Callback invocation is deactivated by specifying NULL.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_DigitalInput_add( u16 index, rb_sim_DigitalInput_TriggerEdge triggerEdge, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new digital output interface.
+N * @param index the unique interface identifier.
+N * @param initialValue use this value as initial value.
+N */
+Nvoid rb_sim_DigitalOutput_add( u16 index, bool initialValue );
+Xvoid rb_sim_DigitalOutput_add( u16 index, _Bool initialValue );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new analog input interface.
+N * This function blocks until the initial value of the simulated peripheral was received from the simulator.
+N * @param index the unique interface identifier.
+N * @param maxValue specifies the maximum value of the interface, the minimum value is always 0.
+N * @param callback Pointer to the callback function which is invoked each time the interface changes.
+N *                 Callback invocation is deactivated by specifying NULL.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_AnalogInput_add( u16 index, u32 maxValue, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new analog output interface.
+N * @param index the unique interface identifier.
+N * @param initialValue use this value as initial value.
+N * @param maxValue specifies the maximum value of the interface, the minimum value is always 0.
+N */
+Nvoid rb_sim_AnalogOutput_add( u16 index, u32 initialValue, u32 maxValue );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new touch input interface.
+N * This function blocks until the initial touch input state was received from the simulator.
+N * @param index the unique interface identifier.
+N * @param callback Pointer to the callback function which is invoked each time the touch input state changes.
+N *                 Callback invocation is deactivated by specifying NULL.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_TouchInput_add( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new communication channel interface.
+N * ComChannels are a generic way to exchange data with the simulator, whereas ComInterfaces are specialized
+N * for simulating communication interfaces (e. g. UART, SPI, parallel data interface, ...).
+N * ComChannels work packet-oriented, i. e. they transfer data as distinct messages.
+N * @note Be aware that ComChannel- and ComInterfaces share the same range of indices.
+N * @param index the unique interface identifier.
+N * @param sendQueueSize the size of the internal send queue that is needed to buffer the outgoing data.
+N *                 Be aware that the maximum size of a data message that can be sent to the simulator is sendQueueSize-1.
+N * @param recvQueueSize the size of the internal receive queue that is needed to buffer the incoming data.
+N *                 Be aware that data messages with a size > recvQueueSize-1 will be split up by the simulator in multiple messages. Smaller messages
+N *                 will never be split up.
+N * @param callback Pointer to the callback function which is invoked each time a new message was received.
+N *                 Callback invocation is deactivated by specifying NULL.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_ComChannel_add( u16 index, u8 sendQueueSize, u8 recvQueueSize, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new communication interface.
+N * While ComChannels are a generic way to exchange data with the simulator, ComInterfaces are used to
+N * simulate communication interfaces (e. g. UART, parallel data interface, ...).
+N * ComInterfaces work stream-oriented (i. e. the data may be received in different portions than they were sent).
+N * @note Be aware that ComChannel- and ComInterfaces share the same range of indices.
+N * @param index the unique interface identifier.
+N * @param sendFifoSize the size of the send FIFO of the simulated device, i. e. portions of this size can be sent when being notified by a send callback.
+N * @param recvFifoSize the size of the receive FIFO of the simulated device, i. e. at most that many bytes will be available after being notified by a receive callback.
+N * @param sendQueueSize the size of the internal send queue that is needed to buffer the outgoing data (should be >= sendFifoSize).
+N * @param recvQueueSize the size of the internal receive queue that is needed to buffer the incoming data (should be >= recvFifoSize).
+N * @param sendCallback Pointer to the callback function which is invoked each time data can be sent or NULL in order to switch off send callback invocation.
+N *                     Callbacks are disabled by default and need to be enabled manually.
+N *                     Be aware that the callback is invoked from the simulation tick context.
+N * @param recvCallback Pointer to the callback function which is invoked each time data was received or NULL in order to switch off receive callback invocation.
+N *                     Callbacks are disabled by default and need to be enabled manually.
+N *                     Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_ComInterface_add( u16 index, u8 sendFifoSize, u8 recvFifoSize, u8 sendQueueSize, u8 recvQueueSize, rb_sim_CallbackFunction sendCallback, rb_sim_CallbackFunction recvCallback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new display interface.
+N * @param index the unique interface identifier.
+N * @param width the number of horizontal pixels.
+N *              The specified width must be a multiple of 8.
+N * @param height the number of vertical pixels.
+N *               The specified height must be a multiple of 8.
+N * @param bitsPerPixel the amount of bits, used for representing the pixel color.
+N *                     While the driver supports arbitrary values, the simulator is currently restricted to the values 1, 2, 4 and 8.
+N * @param autoUpdate specifies if an update should be automatically scheduled after writing to the display.
+N *                   If false is given, the update needs to be triggered manually by calling the function rb_sim_Display_update().
+N */
+Nvoid rb_sim_Display_add( u16 index, u16 width, u16 height, u8 bitsPerPixel, bool autoUpdate );
+Xvoid rb_sim_Display_add( u16 index, u16 width, u16 height, u8 bitsPerPixel, _Bool autoUpdate );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new memory interface (ROM, RAM and NVRAM).
+N * @note Be aware that all memory interfaces share the same range of indices (independently from the type of memory).
+N * @param index the unique interface identifier.
+N * @param memoryAddress the start address of the simulated memory.
+N * @param memorySize the size of the simulated memory.
+N * @param callback the callback function which is invoked after the last operation has been finished or NULL.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_Memory_add( u16 index, u32 memoryAddress, u32 memorySize, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Adds a new flash memory interface.
+N * @note Be aware that Memory- and FlashMemory interfaces share the same range of indices (independently from the type of memory).
+N * @param index the unique interface identifier.
+N * @param memoryAddress the start address of the simulated memory.
+N * @param memorySize the size of the simulated memory.
+N *                   The specified size needs to be a multiple of the specified pageSize.
+N * @param pageSize the size of each flash page.
+N * @param erasedMemoryValue the byte value of the memory after an erase operation (e. g. 0xFF).
+N * @param callback the callback function which is invoked after the last operation (i. e. read, write, erase) is finished or NULL.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_Memory_Flash_add( u16 index, u32 memoryAddress, u32 memorySize, u32 pageSize, u8 erasedMemoryValue, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the value of a digital output interface.
+N * @param index the unique interface identifier.
+N * @param value the new value.
+N */
+Nvoid rb_sim_DigitalOutput_setValue( u16 index, bool value );
+Xvoid rb_sim_DigitalOutput_setValue( u16 index, _Bool value );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the current value of a digital output interface.
+N * @param index the unique interface identifier.
+N * @return the value of the output interface.
+N */
+Nbool rb_sim_DigitalOutput_getValue( u16 index );
+X_Bool rb_sim_DigitalOutput_getValue( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the value of a digital input interface.
+N * @param index the unique interface identifier.
+N * @return the value of the interface.
+N */
+Nbool rb_sim_DigitalInput_getValue( u16 index );
+X_Bool rb_sim_DigitalInput_getValue( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the callback function of a digital input interface.
+N * @param index the unique interface identifier.
+N * @param callback Pointer to the callback function (or NULL in order to unset a previously set callback function) which is invoked each time the signal edge changes, according to the configured triggerEdge.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_DigitalInput_setCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the trigger edge of a digital input interface.
+N * @param index the unique interface identifier.
+N * @param triggerEdge specifies at which signal edge the callback is triggered.
+N */
+Nvoid rb_sim_DigitalInput_setTriggerEdge( u16 index, rb_sim_DigitalInput_TriggerEdge triggerEdge );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the callback invocation of a digital input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_DigitalInput_enableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the callback invocation of a digital input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_DigitalInput_disableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the value of an analog output interface.
+N * @param index the unique interface identifier.
+N * @param value the new value. If the value exceeds the configured maximum value it is limited to this maximum value.
+N */
+Nvoid rb_sim_AnalogOutput_setValue( u16 index, u32 value );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the value of an analog input interface.
+N * @param index the unique interface identifier.
+N * @return the value of the interface.
+N */
+Nu32 rb_sim_AnalogInput_getValue( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the callback function of an analog input interface.
+N * @param index the unique interface identifier.
+N * @param callback pointer to the callback function (or NULL in order to unset a previously set callback function) which is invoked each time a sampling result is available.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_AnalogInput_setCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the callback invocation of an analog input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_AnalogInput_enableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the callback invocation of an analog input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_AnalogInput_disableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Starts sampling of an analog input interface.
+N * The callback will be invoked after sampling is finished.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_AnalogInput_sampleOnce( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Starts continuous sampling of an analog input interface.
+N * The callback will be invoked at the end of each sampling step.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_AnalogInput_sampleContinuousStart( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Stops continuous sampling of an analog input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_AnalogInput_sampleContinuousStop( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the coordinates of the last pressed or unpressed position.
+N * @param index the unique interface identifier.
+N * @param x pointer to a variable where the x coordinate is stored.
+N * @param y pointer to a variable where the y coordinate is stored.
+N * @return this value can be false (unpressed) or true (pressed).
+N */
+Nbool rb_sim_TouchInput_getState( u16 index, u16* x, u16* y );
+X_Bool rb_sim_TouchInput_getState( u16 index, u16* x, u16* y );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the callback function of a touch input interface.
+N * @param index the unique interface identifier.
+N * @param callback Pointer to the callback function (or NULL in order to unset a previously set callback function) which is invoked each time the state of the interface changes.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_TouchInput_setCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the callback invocation of a touch input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_TouchInput_enableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the callback invocation of a touch input interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_TouchInput_disableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Sends a message using a communication channel.
+N * @attention This function must not be called concurrently for the same communication channel, otherwise the program may crash!
+N * @note  Be aware that the maximum size of a data message that can be sent to the simulator is the sendQueueSize-1
+N *        that is specified during initialization with a call to @ref rb_sim_ComChannel_add.
+N * @param index the unique interface identifier.
+N * @param data pointer to the data to send.
+N * @param dataLen length of the data to send.
+N * @return true if the complete message was successfully sent, false if there is not enough space available (in this case, no data is sent).
+N */
+Nbool rb_sim_ComChannel_sendMessage( u16 index, const void* data, u8 dataLen );
+X_Bool rb_sim_ComChannel_sendMessage( u16 index, const void* data, u8 dataLen );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Moves the internal read index to the next received communication channel message.
+N * This function must be called before any data bytes of the received message can be read.
+N * @attention Retrieving the next receive message and reading from it must not done concurrently for
+N *   the same communication channel, otherwise the program may crash!
+N * @param index the unique interface identifier.
+N * @return the size of the received message, or 0 if no (other) message was received
+N */
+Nu8 rb_sim_ComChannel_getNextRecvMessage( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the data of a communication channel message.
+N * Be aware that the function rb_sim_ComChannel_getNextRecvMessage must have been called before.
+N * The received message data can be read in chunks by calling this function multiple times and
+N * passing a value < the received message length to the parameter @c dataLen.
+N * @attention Retrieving the next receive message and reading from it must not done concurrently for
+N *   the same communication channel, otherwise the program may crash!
+N * @param index the unique interface identifier.
+N * @param data pointer to a buffer where the received data is copied to.
+N * @param dataLen size of the given buffer.
+N * @return Number of bytes that are actually copied. If the returned value is < @c dataLen, no
+N *         more message bytes are available and further calls to this function (without calling
+N *         rb_sim_ComChannel_getNextRecvMessage in between) will return 0.
+N */
+Nu8 rb_sim_ComChannel_getRecvMessageData( u16 index, void* data, u8 dataLen );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the received data callback function of a communication channel.
+N * @param index the unique interface identifier.
+N * @param callback pointer to the callback function (or NULL in order to unset a previously set callback function) which will be invoked each time a new message has been received.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_ComChannel_setRecvDataCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the received data callback invocation of a communication channel.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_ComChannel_enableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the received data callback invocation of a communication channel.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_ComChannel_disableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the received data of a communication interface.
+N * @param index the unique interface identifier.
+N * @param data pointer to a buffer where the received data is copied to.
+N * @param dataLen size of the given buffer.
+N * @return number of bytes that are copied.
+N */
+Nu8 rb_sim_ComInterface_getRecvData( u16 index, void* data, u8 dataLen );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Sends data using a communication interface.
+N * @param index the unique interface identifier.
+N * @param data pointer to the data to send.
+N * @param dataLen length of the data to send.
+N * @return the number of bytes that could be queued.
+N */
+Nu8 rb_sim_ComInterface_putSendData( u16 index, const void* data, u8 dataLen );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Indicates whether data is available to be retrieved from a communication interface.
+N * @param index the unique interface identifier.
+N * @return true if data is available.
+N */
+Nbool rb_sim_ComInterface_getIsRecvDataAvailable( u16 index );
+X_Bool rb_sim_ComInterface_getIsRecvDataAvailable( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Indicates whether data can be put into the send FIFO of a communication interface.
+N * @param index the unique interface identifier.
+N * @return true, if there is space free in the send FIFO.
+N */
+Nbool rb_sim_ComInterface_getIsSendSpaceAvailable( u16 index );
+X_Bool rb_sim_ComInterface_getIsSendSpaceAvailable( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the received data callback of a communication interface.
+N * @param index the unique interface identifier.
+N * @param callback pointer to the callback function (or NULL in order to unset a previously set callback function) which is invoked each time new data has been received.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_ComInterface_setRecvDataCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the send ready callback of a communication interface.
+N * @param index the unique interface identifier.
+N * @param callback pointer to the callback function (or NULL in order to unset a previously set callback function) which is invoked each time data can be send.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_ComInterface_setSendReadyCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the send ready callback invocation of a communication interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_ComInterface_enableSendReadyCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the send ready callback invocation of a communication interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_ComInterface_disableSendReadyCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the receive data callback invocation of a communication interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_ComInterface_enableRecvDataCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the received data callback invocation of a communication interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_ComInterface_disableRecvDataCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the width of a display interface.
+N * @param index the unique interface identifier.
+N * @return the width of the display in pixel.
+N */
+Nu16 rb_sim_Display_getWidth( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the height of a display interface.
+N * @param index the unique interface identifier.
+N * @return the height of the display in pixel.
+N */
+Nu16 rb_sim_Display_getHeight( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the color value of a display pixel. The change will not be reflected in the
+N * simulator before calling rb_sim_Display_update().
+N * @param index the unique interface identifier.
+N * @param x the X-Coordinate of the pixel, starting from 0.
+N * @param y the Y-Coordinate of the pixel, starting from 0.
+N * @param value the new pixels color value.
+N */
+Nvoid rb_sim_Display_setPixel( u16 index, u16 x, u16 y, u32 value );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the color value of a display pixel.
+N * @param index the unique interface identifier.
+N * @param x the X-Coordinate of the pixel, starting from 0.
+N * @param y the Y-Coordinate of the pixel, starting from 0.
+N * @return the pixel's color value.
+N */
+Nu32 rb_sim_Display_getPixel( u16 index, u16 x, u16 y );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Transfers the frame buffer of a display to the simulator. This function must be called,
+N * after one or more pixels haven been updated.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_Display_update( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Reads data from a memory interface.
+N * This is an asynchronous function, which means the operation will be started and the function returns immediately.
+N * A callback will be invoked after the operation has been finished.
+N * Before this operation is finished no other operation of any kind (read, write, erase) must be started for
+N * the simulated memory with the same index.
+N * @param index the unique interface identifier.
+N * @param address the address of the data region to read.
+N * @param data pointer to a buffer where the data is copied to.
+N *             Make sure the specified buffer stays valid until the operation has been finished.
+N * @param dataLen size of the given buffer, i.e. number of bytes to read.
+N */
+Nvoid rb_sim_Memory_read( u16 index, u32 address, void* data, u32 dataLen );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Writes data to a memory interface.
+N * This is an asynchronous function, which means the operation will be started and the function returns immediately.
+N * A callback will be invoked after the operation has been finished.
+N * Before this operation is finished no other operation of any kind (read, write, erase) must be started for
+N * the simulated memory with the same index.
+N * @param index the unique interface identifier.
+N * @param address the address of the data region where the data is written to.
+N * @param data pointer to the data that needs to be written.
+N *             Make sure the specified data stays valid until the operation has been finished.
+N * @param dataLen size of the given data, i.e. number of bytes to write.
+N */
+Nvoid rb_sim_Memory_write( u16 index, u32 address, const void* data, u32 dataLen );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Erases a flash page of a flash memory interface.
+N * This is an asynchronous function, which means the operation will be started and the function returns immediately.
+N * A callback will be invoked after the operation has been finished.
+N * Before this operation is finished no other operation of any kind (read, write, erase) must be started for
+N * the simulated memory with the same index.
+N * @param index the unique interface identifier.
+N * @param address the start address of the flash page to erase.
+N */
+Nvoid rb_sim_Memory_erasePage( u16 index, u32 address );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Updates the operation finished callback of a memory interface.
+N * @param index the unique interface identifier.
+N * @param callback pointer to the callback function (or NULL in order to unset a previously set callback function) which is invoked after the last operation has been finished.
+N *                 Callbacks are disabled by default and need to be enabled manually.
+N *                 Be aware that the callback is invoked from the simulation tick context.
+N */
+Nvoid rb_sim_Memory_setCallback( u16 index, rb_sim_CallbackFunction callback );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * (Re-)Enables the operation finished callback invocation of a memory interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_Memory_enableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Disables the operation finished callback invocation of a memory interface.
+N * @param index the unique interface identifier.
+N */
+Nvoid rb_sim_Memory_disableCallback( u16 index );
+N
+N/**
+N * @ingroup module_target_sim_c_api
+N * Returns the flash page size of a flash memory interface.
+N * @param index the unique interface identifier.
+N * @param address the start address of the flash page.
+N *                The given address needs to be the exact start address, otherwise 0 is returned.
+N * @return size of the flash page, 0 if given address is not a valid flash page start address.
+N */
+Nu32 rb_sim_Memory_getPageSize( u16 index, u32 address );
+N
+N#ifdef __cplusplus
+S}
+N#endif
+N
+N#endif // LIBREDBLOCKS_SIM_H_
+L 2 "..\..\SimulationPlatform.c" 2
+N#include <Platform.h>
+L 1 "..\..\..\..\src\Platform.h" 1
+N#ifndef PLATFORM_H_
+N#define PLATFORM_H_
+N
+Nvoid Platform_Led_setValue( unsigned char value );
+Nvoid Platform_PushButton_setIsrCallback(void (*cbk)( void ));
+Nunsigned char Platform_PushButton_getValue( void );
+Nvoid Platform_PushButton_enableInterrupt( void );
+Nvoid Platform_PushButton_disableInterrupt( void );
+Nvoid Platform_registerSystickCallback(void (*cbk)( void ));
+N
+N
+N#endif /* PLATFORM_H_ */
+L 3 "..\..\SimulationPlatform.c" 2
+N
+N#define ID_LED 0
+N#define ID_PUSH_BUTTON 0
+N
+Nvoid Platform_initSimulation( void )
+N{
+N  rb_sim_DigitalOutput_add( ID_LED, 0 );
+X  rb_sim_DigitalOutput_add( 0, 0 );
+N  rb_sim_DigitalInput_add( ID_PUSH_BUTTON, RB_TRIGGER_EDGE_RISING, NULL );
+X  rb_sim_DigitalInput_add( 0, RB_TRIGGER_EDGE_RISING, 0 );
+N}
+N
+Nvoid Platform_Led_setValue( unsigned char value )
+N{
+N  rb_sim_DigitalOutput_setValue(ID_LED, value);
+X  rb_sim_DigitalOutput_setValue(0, value);
+N}
+N
+Nvoid Platform_PushButton_setIsrCallback(void (*cbk)( void ))
+N{
+N  rb_sim_DigitalInput_setCallback(ID_PUSH_BUTTON, cbk);
+X  rb_sim_DigitalInput_setCallback(0, cbk);
+N}
+N
+Nvoid Platform_PushButton_enableInterrupt()
+N{
+N  rb_sim_DigitalInput_enableCallback(ID_PUSH_BUTTON);
+X  rb_sim_DigitalInput_enableCallback(0);
+N}
+N
+Nvoid Platform_PushButton_disableInterrupt()
+N{
+N  rb_sim_DigitalInput_disableCallback(ID_PUSH_BUTTON);
+X  rb_sim_DigitalInput_disableCallback(0);
+N}
+N
+Nunsigned char Platform_PushButton_getValue()
+N{
+N  return rb_sim_DigitalInput_getValue(ID_PUSH_BUTTON);
+X  return rb_sim_DigitalInput_getValue(0);
+N}
+N
+Nvoid Platform_registerSystickCallback(void (*cbk)( void ))
+N{
+N  rb_sim_SystemTick_init(10, 1, cbk);
+N  rb_sim_SystemTick_enableCallback();
+N}

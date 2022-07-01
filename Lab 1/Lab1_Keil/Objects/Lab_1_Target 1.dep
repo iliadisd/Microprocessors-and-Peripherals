@@ -1,0 +1,24 @@
+Dependencies for Project 'Lab_1', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\Lab1_8811.c)(0x60870F62)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="534" -D_RTE_ -DSTM32F401xE -D_RTE_-o .\objects\lab1_8811.o --omf_browse .\objects\lab1_8811.crf --depend .\objects\lab1_8811.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E8312)
+F (C:\Users\noescape\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Source\retarget_io.c)(0x584E700E)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="534" -D_RTE_ -DSTM32F401xE -D_RTE_-o .\objects\retarget_io.o --omf_browse .\objects\retarget_io.crf --depend .\objects\retarget_io.d)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\rt_sys.h)(0x5E8E8312)
+I (.\RTE\_Target_1\RTE_Components.h)(0x6081CA5B)
+F (RTE\Device\STM32F401RETx\startup_stm32f401xe.s)(0x5F6B1826)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 534" --pd "_RTE_ SETA 1" --pd "STM32F401xE SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_stm32f401xe.lst --xref -o .\objects\startup_stm32f401xe.o --depend .\objects\startup_stm32f401xe.d)
+F (RTE\Device\STM32F401RETx\system_stm32f4xx.c)(0x5F6B1826)(-c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="534" -D_RTE_ -DSTM32F401xE -D_RTE_-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5F6B1826)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f401xe.h)(0x5F6B1826)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F1772)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5F6B1826)

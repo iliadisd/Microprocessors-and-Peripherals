@@ -1,0 +1,117 @@
+L 1 "..\..\..\..\src\Application.c"
+N#include <Application.h>
+L 1 "..\..\..\..\src\Application.h" 1
+N#ifndef APPLICATION_H_
+N#define APPLICATION_H_
+N
+Nvoid Application_run( void );
+N
+N#endif /* APPLICATION_H_ */
+L 2 "..\..\..\..\src\Application.c" 2
+N#include <Platform.h>
+L 1 "..\..\..\..\src\Platform.h" 1
+N#ifndef PLATFORM_H_
+N#define PLATFORM_H_
+N
+Nvoid Platform_Led_setValue( unsigned char value );
+Nvoid Platform_PushButton_setIsrCallback(void (*cbk)( void ));
+Nunsigned char Platform_PushButton_getValue( void );
+Nvoid Platform_PushButton_enableInterrupt( void );
+Nvoid Platform_PushButton_disableInterrupt( void );
+Nvoid Platform_registerSystickCallback(void (*cbk)( void ));
+N
+N
+N#endif /* PLATFORM_H_ */
+L 3 "..\..\..\..\src\Application.c" 2
+N#include <stdbool.h>
+L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
+N/* stdbool.h: ISO/IEC 9899:1999 (C99), section 7.16 */
+N
+N/* Copyright (C) ARM Ltd., 2002
+N * All rights reserved
+N * RCS $Revision$
+N * Checkin $Date$
+N * Revising $Author: drodgman $
+N */
+N
+N#ifndef __bool_true_false_are_defined
+N#define __bool_true_false_are_defined 1
+N#define __ARMCLIB_VERSION 5060044
+N
+N  #ifndef __cplusplus /* In C++, 'bool', 'true' and 'false' and keywords */
+N    #define bool _Bool
+N    #define true 1
+N    #define false 0
+N  #else
+S    #ifdef __GNUC__
+S      /* GNU C++ supports direct inclusion of stdbool.h to provide C99
+S         compatibility by defining _Bool */
+S      #define _Bool bool
+S    #endif
+N  #endif
+N
+N#endif /* __bool_true_false_are_defined */
+N
+L 4 "..\..\..\..\src\Application.c" 2
+N
+Nstatic unsigned char ledValue = false;
+Xstatic unsigned char ledValue = 0;
+Nstatic unsigned char doBlink = true;
+Xstatic unsigned char doBlink = 1;
+N
+Nstatic void onPushButtonChangedCbk()
+N{
+N  if (Platform_PushButton_getValue() == true)
+X  if (Platform_PushButton_getValue() == 1)
+N  {
+N    if (doBlink)
+N    {
+N      ledValue = true;
+X      ledValue = 1;
+N      doBlink = false;
+X      doBlink = 0;
+N    }
+N    else
+N    {
+N      if (ledValue)
+N      {
+N        ledValue = false;
+X        ledValue = 0;
+N      }
+N      else
+N      {
+N        doBlink = true;
+X        doBlink = 1;
+N      }
+N    }
+N    Platform_Led_setValue(ledValue);
+N  }
+N}
+N
+Nstatic void onSystemTick()
+N{
+N	static unsigned int i = 0;
+N  if (doBlink)
+N  {
+N    if (0 == i % 500)
+N    {
+N      i = 0;
+N      ledValue = !ledValue;
+N      Platform_Led_setValue( ledValue );
+N    }
+N    ++i;
+N  }
+N  else
+N  {
+N    i = 0;
+N  }
+N}
+N
+Nvoid Application_run()
+N{
+N  Platform_Led_setValue(ledValue);
+N  Platform_PushButton_setIsrCallback(onPushButtonChangedCbk);
+N  Platform_PushButton_enableInterrupt();
+N  Platform_registerSystickCallback(onSystemTick);
+N  while( 1 );
+N}

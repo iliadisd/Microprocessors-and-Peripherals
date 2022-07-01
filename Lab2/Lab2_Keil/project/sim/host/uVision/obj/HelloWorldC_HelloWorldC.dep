@@ -1,0 +1,39 @@
+Dependencies for Project 'HelloWorldC', Target 'HelloWorldC': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\main.c)(0x60B0B5C7)(--c99 -c --cpu Cortex-M0 --li -g -O3 --apcs=interwork --split_sections --asm --interleave --asm_dir ".\\" -I ..\..\..\..\src  --diag_suppress 1300-I.\RTE\_HelloWorldC-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src-D__UVISION_VERSION="534" -D_RTE_ -DARMCM0 -D_RTE_-o .\obj\main.o --list_dir ".\\" --list --omf_browse .\obj\main.crf --depend .\obj\main.d)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\ARMCM0.h)(0x5E834D1E)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8F1772)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8F177A)
+I (..\..\..\..\src\Application.h)(0x5F6D872C)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\libredBlocks_sim_uvision.h)(0x5F6DC344)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbCTypes.h)(0x5F6DC344)
+I (..\..\..\..\src\rbConfig.h)(0x5F6D872C)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbConfig-default.h)(0x5F6DC344)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E8312)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\libredBlocks_sim.h)(0x5F6DC344)
+F (..\..\..\..\src\Application.c)(0x60B0B828)(--c99 -c --cpu Cortex-M0 --li -g -O3 --apcs=interwork --split_sections --asm --interleave --asm_dir ".\\" -I ..\..\..\..\src  --diag_suppress 1300-I.\RTE\_HelloWorldC-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src-D__UVISION_VERSION="534" -D_RTE_ -DARMCM0 -D_RTE_-o .\obj\application.o --list_dir ".\\" --list --omf_browse .\obj\application.crf --depend .\obj\application.d)
+I (..\..\..\..\src\Application.h)(0x5F6D872C)
+I (..\..\..\..\src\Platform.h)(0x5F6D872C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E8312)
+F (..\..\SimulationPlatform.c)(0x5F6D872C)(--c99 -c --cpu Cortex-M0 --li -g -O3 --apcs=interwork --split_sections --asm --interleave --asm_dir ".\\" -I ..\..\..\..\src  --diag_suppress 1300-I.\RTE\_HelloWorldC-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src-D__UVISION_VERSION="534" -D_RTE_ -DARMCM0 -D_RTE_-o .\obj\simulationplatform.o --list_dir ".\\" --list --omf_browse .\obj\simulationplatform.crf --depend .\obj\simulationplatform.d)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\libredBlocks_sim.h)(0x5F6DC344)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbCTypes.h)(0x5F6DC344)
+I (..\..\..\..\src\rbConfig.h)(0x5F6D872C)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src\rbConfig-default.h)(0x5F6DC344)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E8312)
+I (..\..\..\..\src\Platform.h)(0x5F6D872C)
+F (C:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\libredBlocks_uVision.lib)(0x5F6DC33E)()
+F (RTE\Device\ARMCM0\startup_ARMCM0.s)(0x5E8F177A)(--cpu Cortex-M0 --li -g --apcs=interwork -I.\RTE\_HelloWorldC-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src--pd "__UVISION_VERSION SETA 534" --pd "_RTE_ SETA 1" --pd "ARMCM0 SETA 1" --pd "_RTE_ SETA 1"--list .\startup_armcm0.lst --xref -o .\obj\startup_armcm0.o --depend .\obj\startup_armcm0.d)
+F (RTE\Device\ARMCM0\system_ARMCM0.c)(0x5E8F177A)(--c99 -c --cpu Cortex-M0 --li -g -O3 --apcs=interwork --split_sections --asm --interleave --asm_dir ".\\" -I ..\..\..\..\src  --diag_suppress 1300-I.\RTE\_HelloWorldC-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include-IC:\Users\noescape\AppData\Local\Arm\Packs\redlogix\redBlocks-Simulator\1.1.4\redBlocks\src-D__UVISION_VERSION="534" -D_RTE_ -DARMCM0 -D_RTE_-o .\obj\system_armcm0.o --list_dir ".\\" --list --omf_browse .\obj\system_armcm0.crf --depend .\obj\system_armcm0.d)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\ARMCM0.h)(0x5E834D1E)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm0.h)(0x5E8F1772)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E834D12)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F1772)
+I (C:\Users\noescape\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include\system_ARMCM0.h)(0x5E8F177A)
